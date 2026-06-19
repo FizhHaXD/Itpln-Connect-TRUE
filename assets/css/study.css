@@ -1,0 +1,395 @@
+/*
+ * ============================================================
+ * study.css — ITPLN Connect
+ * Bagian: Fitur Study Groups (Kelompok Belajar)
+ * ============================================================
+ */
+
+/* ===== FILTER BAR ===== */
+.study-filter-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  background: var(--card);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.study-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  flex: 1;
+  min-width: 200px;
+}
+.study-search-wrap i { color: var(--text-muted); flex-shrink: 0; }
+
+.study-search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text);
+  width: 100%;
+}
+
+.study-filter-group { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+.study-select {
+  padding: 10px 14px;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== CARD GRID ===== */
+.study-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* ===== STUDY CARD ===== */
+.study-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.study-card:hover { transform: translateY(-4px) translateX(-3px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+.study-card--selesai { opacity: 0.7; }
+
+.study-card-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 0; gap: 8px; flex-wrap: wrap; }
+.study-card-body { padding: 14px 16px; flex: 1; }
+
+.study-matkul {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.study-card-title { font-size: 1.05rem; font-family: 'Plus Jakarta Sans', sans-serif; margin-bottom: 8px; line-height: 1.4; color: var(--text); }
+.study-card-desc { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.55; }
+
+.study-card-footer {
+  padding: 12px 16px 14px;
+  border-top: var(--border-width) solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--card-alt);
+}
+
+.study-meta-row { display: flex; align-items: center; gap: 16px; font-size: 0.82rem; color: var(--text-muted); }
+.study-meta-row i { width: 14px; color: var(--primary); }
+.study-slot { font-weight: 700; color: var(--success); }
+.study-slot--full { color: var(--danger); }
+
+.study-creator { display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 0.82rem; color: var(--text-muted); }
+
+/* ===== BADGES ===== */
+.study-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: var(--border-width) solid var(--border);
+}
+.study-badge--belajar { background: #ede9fe; color: var(--primary); }
+.study-badge--mentor  { background: #d1fae5; color: var(--success); }
+
+.study-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: var(--border-width) solid var(--border);
+}
+.study-status--open   { background: #d1fae5; color: #065f46; }
+.study-status--penuh  { background: #fee2e2; color: #991b1b; }
+.study-status--selesai { background: #f3f4f6; color: #6b7280; }
+
+/* Custom Badge for Refactored UI */
+.study-badge-custom {
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.study-badge-custom--belajar { background: #e0e7ff; color: #4338ca; border: 1px solid #4338ca; }
+.study-badge-custom--mentor { background: #e0e7ff; color: #4338ca; border: 1px solid #4338ca; }
+.study-badge-custom--open { background: #dcfce7; color: #166534; border: 1px solid #166534; }
+.study-badge-custom--matkul { background: var(--bg); color: var(--text); border: 1px solid var(--text); }
+
+/* ===== CREATOR AVATAR ===== */
+.study-creator-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); }
+.study-creator-avatar-lg { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); flex-shrink: 0; }
+
+/* ===== TYPE SELECTOR (Create Form) ===== */
+.study-tipe-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.study-tipe-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--card);
+}
+.study-tipe-option input[type="radio"] { display: none; }
+.study-tipe-option:hover { border-color: var(--primary); background: #f5f3ff; }
+.study-tipe-option.selected { border-color: var(--primary); background: #ede9fe; box-shadow: var(--shadow-sm); }
+
+.study-tipe-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: white; flex-shrink: 0;
+  border: var(--border-width) solid var(--border);
+}
+.study-tipe-option b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; margin-bottom: 4px; }
+.study-tipe-option p { font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.4; }
+
+/* ===== DETAIL PAGE LAYOUT REFACTORED ===== */
+.study-detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.study-card-main {
+  border: 2px solid var(--text);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 var(--text);
+  background: var(--card);
+}
+
+.study-card-main-pad {
+  padding: 30px;
+}
+
+/* Creator Info Bar */
+.study-creator-info-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: var(--bg);
+  border: 1px solid var(--text);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.study-creator-info-box img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+/* Info Grid */
+.study-info-grid-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.study-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--text);
+  border-radius: 8px;
+  background: var(--bg);
+}
+.study-info-icon-box {
+  width: 36px;
+  height: 36px;
+  background: #4f46e5;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Progress Bar */
+.study-progress-bar { height: 6px; background: #e5e7eb; border-radius: 3px; margin-top: 8px; overflow: hidden; border: 1px solid #9ca3af; }
+.study-progress-fill { height: 100%; background: #10b981; border-radius: 999px; transition: width 0.4s ease; }
+.study-progress--full { background: var(--danger); }
+
+/* Members List Bottom */
+.study-member-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--bg);
+  border: 1px solid var(--text);
+  border-radius: 8px;
+}
+.study-member-box--creator {
+  background: #eef2ff;
+  border-color: #4f46e5;
+}
+.study-creator-badge-outline {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid #4f46e5;
+  color: #4f46e5;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Form Upload Group */
+.upload-group-box {
+  padding: 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Action Buttons */
+.study-action-btn {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+.study-btn-join {
+  background: #10b981;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #064e3b;
+  box-shadow: 3px 3px 0 #064e3b;
+  transition: all 0.2s;
+}
+.study-btn-join:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0 #064e3b;
+}
+
+/* ===== BANK MATERI (materials.php) ===== */
+.folder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.folder-card {
+  background: var(--bg);
+  border: 2px solid var(--text);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.2s;
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: 4px 4px 0 var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.folder-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 8px 0 var(--text);
+  background: #eef2ff;
+}
+.folder-icon {
+  font-size: 3rem;
+  color: #4f46e5;
+}
+
+.material-file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.material-file-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.material-file-icon {
+  font-size: 2rem;
+  color: #ef4444;
+}
+
+.upload-admin-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.study-materials-lock {
+  background: #eef2ff;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  gap: 12px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .study-tipe-selector { grid-template-columns: 1fr; }
+  .study-filter-bar { flex-direction: column; align-items: stretch; padding: 12px; gap: 8px; overflow: hidden; }
+  .study-search-wrap { min-width: unset; width: 100%; box-sizing: border-box; }
+  .study-filter-group { flex-direction: column; gap: 8px; width: 100%; }
+  .study-select { width: 100%; min-width: unset; box-sizing: border-box; }
+  .study-filter-group .btn { width: 100%; justify-content: center; }
+  .study-grid { grid-template-columns: 1fr; }
+  .study-info-grid-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .study-creator-info-box { flex-wrap: wrap; }
+  .study-creator-info-box > div:last-child { display: none; }
+}

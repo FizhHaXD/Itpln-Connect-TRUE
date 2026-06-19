@@ -1,0 +1,21 @@
+/*
+ * ============================================================
+ * style.css — ITPLN Connect
+ * File Utama: Mengimpor semua modul CSS secara berurutan
+ *
+ * Struktur Modul:
+ *   base.css       → Variables, Reset, Body, Scrollbar
+ *   layout.css     → Navbar, Footer, Container, Grid
+ *   components.css → Typography, Buttons, Cards, Forms
+ *   features.css   → Carousel, Chat, Posts, Admin, Events
+ *   study.css      → Fitur Kelompok Belajar
+ *
+ * Catatan: landing.css di-load langsung di index.php
+ * ============================================================
+ */
+
+@import url('base.css');
+@import url('layout.css?v=3');
+@import url('components.css');
+@import url('features.css');
+@import url('study.css');

@@ -1,0 +1,23 @@
+# Mengabaikan folder unggahan (agar gambar/dokumen yang di-upload user tidak ikut terunggah)
+uploads/communities/*
+uploads/events/*
+uploads/materials/*
+uploads/posts/*
+uploads/profiles/*
+!uploads/**/index.php
+!uploads/**/.gitkeep
+
+# Mengabaikan file konfigurasi yang berisi password database dan API Key rahasia
+config/database.php
+config/google_config.php
+
+# Mengabaikan folder environment dan library pihak ketiga (jika nanti Anda pakai)
+vendor/
+.env
+
+# Mengabaikan file sistem operasi dan code editor
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
