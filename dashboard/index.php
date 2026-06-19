@@ -94,7 +94,7 @@ $randomTip = $tips[array_rand($tips)];
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - ITPLN Connect</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=<?= time(); ?>">
 </head>
 <body>
 
@@ -240,7 +240,7 @@ $randomTip = $tips[array_rand($tips)];
         <?php else: ?>
           <div style="display:flex; flex-direction:column; gap:10px;">
             <?php while ($m = mysqli_fetch_assoc($recent_materials)): ?>
-              <div style="display:flex; align-items:center; gap:10px; padding:10px; background:var(--bg); border:1px solid var(--border); border-radius:8px;">
+              <div style="display:flex; align-items:center; gap:10px; padding:10px; background:var(--bg); border:1px solid var(--border); border-radius:8px; width: 100%; box-sizing: border-box; min-width: 0;">
                 <div style="color:#ef4444; font-size:1.5rem;"><i class="fa-solid fa-file-pdf"></i></div>
                 <div style="flex-grow:1; min-width:0;">
                   <b style="display:block; font-size:0.9rem; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;" title="<?= htmlspecialchars($m['nama_file']) ?>"><?= htmlspecialchars($m['nama_file']) ?></b>

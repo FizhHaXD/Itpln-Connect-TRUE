@@ -95,7 +95,9 @@ h4 { font-size: 1rem; color: var(--text); }
   font-size: 0.9rem;
   transition: var(--transition);
   box-shadow: var(--shadow);
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4;
 }
 
 .btn:hover {

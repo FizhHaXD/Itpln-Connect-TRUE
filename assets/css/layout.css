@@ -248,7 +248,18 @@
 .mobile-link.logout { color: var(--danger); }
 .mobile-link.logout:hover { background: var(--danger-light); }
 
-/* ===== RESPONSIVE NAVBAR ===== */
+/* ===== RESPONSIVE NAVBAR: JALAN TENGAH (Tablet/Laptop Kecil) ===== */
+@media (max-width: 1300px) {
+  .navbar-container { padding: 0 20px; gap: 8px; }
+  .navbar-menu { gap: 4px; }
+  .nav-link { padding: 8px 10px; font-size: 0.9rem; }
+  .nav-link i { display: none; } /* Hilangkan ikon khusus di layar tanggung */
+  .nav-link.admin-link i { display: inline-block; } /* Ikon admin tetap dibiarkan */
+  .nav-link.admin-link { margin-right: 8px; }
+  .profile-name { max-width: 90px; font-size: 0.9rem; }
+}
+
+/* ===== RESPONSIVE NAVBAR (MOBILE) ===== */
 @media (max-width: 900px) {
   .navbar-menu { display: none; }
   .navbar-profile { display: none !important; }
@@ -477,16 +488,16 @@
 
 /* ===== RESPONSIVE LAYOUT ===== */
 @media (max-width: 900px) {
-  .grid-2 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: minmax(0, 1fr); }
   .col-side { order: -1; }
 }
 
 @media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr; gap: 16px; }
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
 }
 
 @media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
 
   .container { width: 94%; padding: 20px 0; }
 
