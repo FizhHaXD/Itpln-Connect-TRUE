@@ -208,7 +208,7 @@
 /* ===== FEED LAYOUT ===== */
 .feed-container {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 30px;
   align-items: start;
   padding: 40px 0 80px 0;
@@ -223,7 +223,7 @@
   align-self: start;
 }
 
-.feed-content { display: flex; flex-direction: column; gap: 40px; }
+.feed-content { display: flex; flex-direction: column; gap: 40px; min-width: 0; }
 
 /* Sidebar cards */
 .sidebar-card {

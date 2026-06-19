@@ -249,14 +249,14 @@
 .mobile-link.logout:hover { background: var(--danger-light); }
 
 /* ===== RESPONSIVE NAVBAR: JALAN TENGAH (Tablet/Laptop Kecil) ===== */
-@media (max-width: 1300px) {
-  .navbar-container { padding: 0 20px; gap: 8px; }
-  .navbar-menu { gap: 4px; }
-  .nav-link { padding: 8px 10px; font-size: 0.9rem; }
-  .nav-link i { display: none; } /* Hilangkan ikon khusus di layar tanggung */
-  .nav-link.admin-link i { display: inline-block; } /* Ikon admin tetap dibiarkan */
-  .nav-link.admin-link { margin-right: 8px; }
-  .profile-name { max-width: 90px; font-size: 0.9rem; }
+@media (max-width: 1650px) {
+  .navbar-container { padding: 0 16px; gap: 8px; }
+  .navbar-menu { gap: 6px; }
+  .nav-link { padding: 6px 12px; font-size: 0.85rem; gap: 5px; }
+  .nav-link i { font-size: 0.95rem; } /* Pertahankan ikon tapi kecilkan */
+  .nav-link.admin-link { margin-right: 4px; }
+  .profile-name { max-width: 80px; font-size: 0.85rem; }
+  .brand-text { font-size: 1.15rem; }
 }
 
 /* ===== RESPONSIVE NAVBAR (MOBILE) ===== */
@@ -412,7 +412,6 @@
   max-width: 1400px;
   margin: auto;
   padding: 28px 0;
-  overflow-x: hidden;
 }
 
 /* ===== SECTION HEADER ===== */

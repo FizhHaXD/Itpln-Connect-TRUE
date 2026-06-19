@@ -49,6 +49,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ");
     
     if ($query) {
+        // Otomatis jadikan pembuat komunitas sebagai admin/pemilik
+        $id_community = mysqli_insert_id($conn);
+        mysqli_query($conn, "
+            INSERT INTO community_members (id_user, id_community, role, joined_at)
+            VALUES ($id_user, $id_community, 'admin', NOW())
+        ");
+
         $message = "Komunitas berhasil dibuat!";
         header("Location: index.php?success=1");
         exit();
@@ -73,9 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <a class="btn" href="../dashboard/index.php"><i class="fa-solid fa-house"></i> Dashboard</a>
   </div>
 
-  <a href="index.php" class="btn btn-sm">← Kembali</a>
-  
-  <h2><i class="fa-solid fa-plus" style="color:var(--primary); margin-right:10px;"></i>Buat Komunitas Baru</h2>
+  <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px;">
+    <a href="index.php" class="btn btn-sm" style="margin:0;">&larr; Kembali</a>
+    <h2 style="margin:0;"><i class="fa-solid fa-plus" style="color:var(--primary); margin-right:10px;"></i>Buat Komunitas Baru</h2>
+  </div>
 
   <?php if ($message): ?>
     <div class="alert alert-error"><?= $message; ?></div>
@@ -104,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <hr>
 
       <h4><i class="fa-solid fa-link"></i> Link Komunikasi (Opsional)</h4>
-      <p class="text-muted" style="margin-top: -10px; margin-bottom: 16px;">Tambahkan link grup atau media sosial untuk berkomunikasi dengan anggota</p>
+      <p class="text-muted" style="margin-bottom: 16px;">Tambahkan link grup atau media sosial untuk berkomunikasi dengan anggota</p>
       <hr>
 
       <label>Admin WhatsApp (Nomor)</label>

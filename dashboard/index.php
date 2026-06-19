@@ -86,6 +86,15 @@ $tips = [
   "Semakin aktif, semakin banyak koneksi yang kamu bangun!"
 ];
 $randomTip = $tips[array_rand($tips)];
+
+// Postingan Global Terbaru (3 post)
+$global_posts_q = mysqli_query($conn, "
+  SELECT gp.id_post, gp.content, gp.created_at, u.nama, u.foto
+  FROM global_posts gp
+  JOIN users u ON gp.id_user = u.id_user
+  ORDER BY gp.created_at DESC
+  LIMIT 3
+");
 ?>
 
 <!DOCTYPE html>
@@ -194,6 +203,40 @@ $randomTip = $tips[array_rand($tips)];
           </div>
         <?php endif; ?>
       </div>
+
+      <!-- Postingan Global -->
+      <div class="card" style="margin-top: 24px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <h3 style="margin:0;"><i class="fa-solid fa-globe" style="color:var(--primary); margin-right:8px;"></i>Postingan Global Terbaru</h3>
+          <a href="../posts/index.php" class="btn btn-sm btn-outline-primary" style="padding: 4px 10px; font-size:0.85rem;">Lihat Semua</a>
+        </div>
+        
+        <?php if (mysqli_num_rows($global_posts_q) == 0): ?>
+          <p class="empty-message">Belum ada postingan global terbaru.</p>
+        <?php else: ?>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <?php while ($gp = mysqli_fetch_assoc($global_posts_q)): ?>
+              <div style="padding:16px; border:1px solid var(--border); border-radius:12px; background:var(--bg);">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                  <?php if (!empty($gp['foto']) && file_exists("../uploads/profiles/".$gp['foto'])): ?>
+                    <img src="../uploads/profiles/<?= htmlspecialchars($gp['foto']) ?>" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                  <?php else: ?>
+                    <div style="width:36px; height:36px; border-radius:50%; background:var(--primary-light); color:var(--primary); display:flex; align-items:center; justify-content:center; font-weight:bold;">
+                      <?= strtoupper(substr($gp['nama'], 0, 1)) ?>
+                    </div>
+                  <?php endif; ?>
+                  <div>
+                    <b style="display:block; font-size:0.95rem; color:var(--text);"><?= htmlspecialchars($gp['nama']) ?></b>
+                    <small style="color:var(--text-muted); font-size:0.8rem;"><?= date('d M Y, H:i', strtotime($gp['created_at'])) ?></small>
+                  </div>
+                </div>
+                <p style="margin:0; font-size:0.95rem; line-height:1.5; color:var(--text-secondary);"><?= nl2br(htmlspecialchars($gp['content'])) ?></p>
+              </div>
+            <?php endwhile; ?>
+          </div>
+        <?php endif; ?>
+      </div>
+
     </div>
 
     <!-- Kolom Kanan (Sidebar) -->

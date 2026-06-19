@@ -44,8 +44,8 @@ $events = mysqli_query($conn, "
   <title>ITPLN Connect - Platform Komunitas & Event Kampus</title>
   <meta name="description" content="Platform komunitas dan event kampus ITPLN. Temukan komunitas sesuai minatmu, ikuti event, dan terhubung dengan sesama mahasiswa.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=2.0">
-  <link rel="stylesheet" href="assets/css/landing.css?v=2.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/landing.css?v=3.0">
 </head>
 <body>
 
@@ -104,35 +104,7 @@ $events = mysqli_query($conn, "
     </div>
   </section>
 
-  <!-- FEED LAYOUT WRAPPER -->
-  <div class="feed-container container-wide">
-    
-    <!-- LEFT SIDEBAR -->
-    <aside class="feed-sidebar">
-      <button class="sidebar-toggle-btn" onclick="toggleSidebar()" id="sidebarToggle">
-        <span><i class="fa-solid fa-bars" style="margin-right:8px;"></i> Menu & Navigasi</span>
-        <i class="fa-solid fa-chevron-down"></i>
-      </button>
-      <div class="sidebar-content-wrapper" id="sidebarContent">
-        <div class="sidebar-card">
-          <h3>Menu Utama</h3>
-          <ul class="sidebar-nav">
-            <li><a href="<?= BASE_URL ?>index.php"><i class="fa-solid fa-house"></i> Beranda</a></li>
-            <li><a href="<?= BASE_URL ?>communities/index.php"><i class="fa-solid fa-users"></i> Komunitas</a></li>
-            <li><a href="<?= BASE_URL ?>events/index.php"><i class="fa-solid fa-calendar-days"></i> Event Mendatang</a></li>
-          </ul>
-        </div>
-
-        <div class="sidebar-card" style="background: var(--primary); color: white;">
-          <h3 style="border-bottom-color: rgba(255,255,255,0.2);">Siap Bergabung?</h3>
-          <p style="font-size: 0.9rem; margin-bottom: 16px; opacity: 0.9;">Buat akunmu sekarang dan mulai bangun koneksi dengan mahasiswa lainnya.</p>
-          <a href="<?= BASE_URL ?>auth/register.php" class="btn btn-outline-primary" style="background: white; color: var(--primary); width: 100%; justify-content: center;">Daftar Gratis</a>
-        </div>
-      </div>
-    </aside>
-
-    <!-- RIGHT CONTENT (FEED) -->
-    <div class="feed-content">
+  <!-- MAIN SECTIONS -->
 
       <!-- FEATURES SECTION -->
       <section class="features-section">
@@ -263,8 +235,6 @@ $events = mysqli_query($conn, "
     </div>
   </section>
 
-    </div> <!-- End of feed-content -->
-  </div> <!-- End of feed-container -->
 
 </main>
 
